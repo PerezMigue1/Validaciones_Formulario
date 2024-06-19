@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica Validaciones</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="titulo">Practica de Validaciones</h1>
+        <h2 class="subtitulo">Formulario de registro</h2>
+
+        <form action="" method="get">
+            <label for="NOM">Nombre de Usuario:</label>
+            <input type="text" id="username" name="username" pattern="^[a-zA-Z0-9]{5,15}$"
+                title="Debe tener entre 5 y 15 caracteres alfanuméricos" class="input" placeholder="Nombre de Usuario"
+                required maxlength="15" minlength="5">
+
+
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña1" name="contraseña1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%\^&\*])(?=.*[^\s]).{8,}" 
+                title="Debe tener al menos 8 caracteres incluyendo al menos una letra mayúscula, una minúscula, un número y un carácter especial (!, @, #, etc.)"
+                class="input" placeholder="contraseña" required maxlength="15" minlength="8">
+            
+            <label for="contraseña">Confirma Contraseña:</label>
+            <input type="password" id="contraseña2" name="contraseña2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%\^&\*])(?=.*[^\s]).{8,}" 
+                title="Debe tener al menos 8 caracteres incluyendo al menos una letra mayúscula, una minúscula, un número y un carácter especial (!, @, #, etc.)"
+                class="input" placeholder="Confirma contraseña" required maxlength="15" minlength="8">
+    
+            <label for="Correo electronico">Correo Electronico:</label>
+            <input type="email" id="email" name="email"
+                title="Debe ser una direccion de correo electronico valida" class="input"
+                placeholder="correo electronico" maxlength="360">
+
+            <br>
+            <br>
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+            <label for="phone">Telefono:</label>
+            <input id="phone" type="tel" name="phone" placeholder="numero de telefono" pattern="^\+[0-9]{1,15}$"
+                title="Debe seguir el formato internacional, comenzando con el signo + y hasta 15 digitos "
+                required maxlength="15" minlength="10">
+
+            <script>
+                const phoneInputField = document.querySelector("#phone");
+                const phoneInput = window.intlTelInput(phoneInputField, {
+                utilsScript:"https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+                });
+            </script>
+            <br>
+            <br>
+
+            <label for="date">Fecha de nacimiento</label>
+            <input type="date" id="date" pattern="\d{4}-\d{2}-\d{2}" title="Debe estar en el formato YYYY-MM-DD" class="input"
+            required max="2006-01-01">
+
+            <label for="Codigo">Codigo postal:</label>
+            <input type="text" id="codigo" name="codigo" pattern="[0-9]{5}"
+                title="Debe consistir en exactamennte 5 digitos" class="input" placeholder="codigo postal" maxlength="5">
+
+            <input type="submit" class="boton" onclick="confirma()">
+        </form>
+
+    </div>
+    <script src="./main.js"></script>
+</body>
+
+</html>
